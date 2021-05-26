@@ -1,4 +1,4 @@
-FROM python:slim
+FROM python:3.8.10-slim
 LABEL maintainer="txnguyen2921"
 LABEL description="frontend for cat_vs_dog app"
 
