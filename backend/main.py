@@ -16,7 +16,7 @@ from io import BytesIO
 
 from inference import make_prediction 
 
-model = tf.keras.models.load_model(str(CONFIG.models / "cat_vs_dog"))
+model = tf.keras.models.load_model(str(CONFIG.models / "content" / "cat_vs_dog"))
 app = FastAPI()
 def read_image_string(contents):
     # encoded_data = contents[0].split(",")[1]
