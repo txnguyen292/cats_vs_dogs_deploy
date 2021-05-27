@@ -17,7 +17,7 @@ from config import CONFIG
 sys.path.insert(0, str(CONFIG.src))
 
 external_stylesheets = [
-    dbc.themes.BOOTSTRAP,
+    dbc.themes.FLATLY,
     "https://fonts.gstatic.com",
     "https://fonts.googleapis.com/css?family=Sofia",
     {
@@ -29,10 +29,23 @@ external_stylesheets = [
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div([
+    dbc.NavbarSimple([
+                dbc.NavItem(dbc.NavLink("Page 1", href="#")),
+                dbc.NavItem(dbc.NavLink("About", href="#"))
+            ], 
+            className="upload-title",
+            brand="Cat vs. Dog Classification with Tensorflow",
+            color="primary",
+            ),
     dbc.Row([
         dbc.Col([
-            html.H1("Cat vs. Dog Classification with Tensorflow"),
-            html.H4("Upload or Drag an image for prediction"),
+            html.Div([
+                html.H4(
+                    "Upload or Drag an image for prediction",
+                    ),
+                ],
+                className="upload-call"
+            ),
             html.Div([
                 dcc.Upload(
                     id='upload-image',
@@ -47,23 +60,28 @@ app.layout = html.Div([
                 html.Div(id='output-image-upload'),
             ]),
             ], 
-            width=6,
+            width=8,
+            md=8,
             className="upload-col"),
         dbc.Col([
-                dbc.Row([dbc.Button("Predict", 
-                            id="make-prediction", 
-                            color="primary",
-                            className="predict-button"),
-                ]),
-                dbc.Row([
+                html.Div([
+                    dbc.Button(
+                        "Predict", 
+                        id="make-prediction", 
+                        color="primary",
+                        className="predict-button"
+                        ),
+                    html.Hr(),
                     html.Div(id="predicted-label"),
-                ])
+                    ],
+                className="predict-col-button"),
             ], 
-            width=3,
+            width=4,
+            md=4,
             className="predict-col")
-        ])
 
-    ])
+        ])
+    ], className="title")
 
 def parse_contents(contents, filename, date):
     return html.Div([
@@ -72,7 +90,7 @@ def parse_contents(contents, filename, date):
 
         # HTML images accept base64 encoded strings in the same format
         # that is supplied by the upload
-        html.H2("Predicting:"),
+        html.H2("Predicting:", className="uploaded-img-header"),
         html.Img(src=contents,
         style={
             "width": "50%",
@@ -115,7 +133,9 @@ def update_output(n_clicks, contents):
         # r = requests.post(url, json={"contents": encoded_data})
         # pred = r.json()[0]
         # return html.H5(f"Prediction {pred['class']}")
-        return html.H4("Checkmate!")
+        if n_clicks % 2 == 1:
+            return html.H4("Checkmate!")
+        return 
 
 if __name__ == '__main__':
     app.run_server(debug=True)
