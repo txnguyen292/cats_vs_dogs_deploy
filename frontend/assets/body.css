@@ -1,0 +1,51 @@
+.title .upload-title {
+    font-family: 'Roboto Slab', Arial, Geneva, Helvetica, sans-serif;
+    text-align: center;
+    color: papayawhip;
+}
+.predict-col{
+    padding: 0px 200px 0px 0px;
+    width: 100%;
+    height: 400px;
+    text-align: center;
+}
+
+
+.upload-col .upload-call{
+    padding: 100px 0px 0px 30px;
+    height: auto;
+    width: auto;
+}
+
+.upload-col .uploaded-img-header{
+    padding: 20px 0px 20px 0px;
+}
+.predict-col-button {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: 40px;
+    width: 100px;
+}
+
+.photo-upload {
+    width: 50%;
+    height: 60px;
+    line-height: 60px;
+    border-width: 1px;
+    border-style: dashed;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px
+}
+            
+.uploaded-col {
+    padding: 0px 0px 0px 30px;
+}
+
+.uploaded-col .uploaded-image {
+    width: 250px;
+    height: 250px;
+}
