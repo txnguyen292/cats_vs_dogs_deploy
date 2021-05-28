@@ -1,0 +1,20 @@
+version: '3'
+services:
+    frontend:
+        build: frontend
+        image: 22147565/dogvscat/frontend
+        ports:
+            - 8050:8050
+        volumes:
+            - frontend:/home/txnguyen2921/frontend
+    backend:
+        build: backend
+        image: 22147565/dogvscat/backend
+        ports:
+            - 8000:8000
+        volumes:
+            - backend:/home/txnguyen2921/backend
+        
+volumes:
+    frontend:
+    backend:
