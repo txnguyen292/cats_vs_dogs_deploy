@@ -1,3 +1,5 @@
 models/*.zip
 models/*
 backend/models/*
+frontend/env
+frontend/frontend
