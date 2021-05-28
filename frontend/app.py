@@ -137,4 +137,4 @@ def update_output(n_clicks, contents):
         #     return html.H4("Checkmate!")
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True, port=8050)
