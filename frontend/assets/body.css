@@ -12,7 +12,7 @@
 
 
 .upload-col .upload-call{
-    padding: 100px 0px 0px 0px;
+    padding: 100px 0px 0px 30px;
     height: auto;
     width: auto;
 }
@@ -30,7 +30,7 @@
     width: 100px;
 }
 
-.photo-upload{
+.photo-upload {
     width: 50%;
     height: 60px;
     line-height: 60px;
@@ -41,3 +41,11 @@
     margin: 10px
 }
             
+.uploaded-col {
+    padding: 0px 0px 0px 30px;
+}
+
+.uploaded-col .uploaded-image {
+    width: 250px;
+    height: 250px;
+}
