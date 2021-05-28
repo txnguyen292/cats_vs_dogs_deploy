@@ -2,4 +2,4 @@
 
 Deploy cat_vs_dog classifier with Docker
 
-![Example Landing Page](/report/inference.png)
+![Example Landing Page](./backend/report/inference.png)
