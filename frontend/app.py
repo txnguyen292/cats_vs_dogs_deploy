@@ -36,6 +36,7 @@ app.layout = html.Div([
             className="upload-title",
             brand="Cat vs. Dog Classification with Tensorflow",
             color="primary",
+            dark=True,
             ),
     dbc.Row([
         dbc.Col([
@@ -92,12 +93,11 @@ def parse_contents(contents, filename, date):
         # that is supplied by the upload
         html.H2("Predicting:", className="uploaded-img-header"),
         html.Img(src=contents,
-        style={
-            "width": "50%",
-            "height": "50%"
-        }),
+                className="uploaded-image"),
         html.Hr(),
-    ])
+            ], 
+        className="uploaded-col"
+        )
 
 
 @app.callback(Output('output-image-upload', 'children'),
@@ -127,15 +127,14 @@ def update_output(n_clicks, contents):
     if n_clicks is None:
         raise PreventUpdate
     else:
-        # url = "http://127.0.0.1:8000/predict"
-        # split_content = contents[0].split(",")
-        # encoded_data = split_content[1]
-        # r = requests.post(url, json={"contents": encoded_data})
-        # pred = r.json()[0]
-        # return html.H5(f"Prediction {pred['class']}")
-        if n_clicks % 2 == 1:
-            return html.H4("Checkmate!")
-        return 
+        url = "http://127.0.0.1:8000/predict"
+        split_content = contents[0].split(",")
+        encoded_data = split_content[1]
+        r = requests.post(url, json={"contents": encoded_data})
+        pred = r.json()[0]
+        return html.H5(f"It's a {pred['class']}!")
+        # if n_clicks % 2 == 1:
+        #     return html.H4("Checkmate!")
 
 if __name__ == '__main__':
     app.run_server(debug=True)
